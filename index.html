@@ -12,10 +12,31 @@
 
 <body>
     <header>
-        <h1>Avengers Character Search</h1>
-        <p>This is a simple webpage for the search button test.</p>
+        <div class="container">
+            <h1>Avengers Character Search</h1>
+        </div>
     </header>
     <main>
-        <button type="button" id="button">Search</button>
+        <section class="form-group">
+            <h2>Search By Full Name Or Alias</h2>
+            <!-- <label for="avengerSearch">Search By Full Name Or Alias</label> -->
+            <input type="search" id="avengerSearch" placeholder="eg. Captain America or Steve Rogers" name="avengerSearch">
+            <button type="button" id="button">Search</button>
+            <h2>Results</h2>
+            <hr>
+        </section>
+        <section class="avengerResult">
+            <div id="result">
+                <!-- SuperHero Name -->
+                <h4 id="superHeroName"></h4>
+
+                <!-- SuperHero Alias -->
+                <h3 id="superHeroAlias"></h3>
+
+                <!-- SuperHero Bio -->
+                <p id="superHeroBio"></p>
+            </div>
+        </section>
+
     </main>
 </body>

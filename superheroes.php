@@ -67,10 +67,25 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 
+$count = 0;
+$a = filter_var($_REQUEST['a'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+if ($a !== ''){
+    foreach ($superheroes as $superhero){
+        if (strcasecmp($a, $superhero['alias']) == 0 || strcasecmp($a, $superhero['name']) == 0){
+            echo "<hr><h3>".$superhero["alias"]."</h3><h4>".$superhero["name"]."</h4><p>".$superhero["biography"]."</p>";
+            break;
+        }elseif($count == 9){
+            echo "<hr><p style='color:red'>Superhero Not Found</p>";
+        }
+        $count++;
+    }
+}else{
+        echo '<ul>';
+        foreach ($superheroes as $superhero){
+                echo '<li>'.$superhero['alias'].'</li>';
+            }
+        echo '<ul>';
+    }
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
