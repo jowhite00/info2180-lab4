@@ -1,11 +1,5 @@
 /* JavaScript file */
-//C:\GitHub\Labs\info2180-lab4
-// http://localhost:8080/superheroes.php
-//php -S localhost:8080
-
 window.onload=function(){
-    //document.getElementById("Result").innerHTML= xml.responseText;
-    
     var btn = document.getElementById("button");
     btn.addEventListener("click", avengersList);
     const resultMainSection = document.getElementById("result");
@@ -37,11 +31,6 @@ window.onload=function(){
             .then(data => {
                 console.log(data);
                 resultMainSection.innerHTML = data;
-                //var processedResult = data;
-                // if (processedResult == "SuperHero Not Found"){
-                //     resultMainSection.innerHTML = processedResult;
-                // }
-                
             })
         }
         else{
@@ -59,7 +48,6 @@ window.onload=function(){
              .then(data => {  
              let avengersResults = document.querySelector('#result');
              avengersResults.innerHTML = data;
-             //resultMainSection.innerHTML = data[0];   
          })
          .catch(function(error){
               //Errors are printed the to console inside of the browser
